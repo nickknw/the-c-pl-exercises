@@ -5,5 +5,6 @@ int getch(void);
 void ungetch(int);
 
 void setInput(int[], int);
+void freeInput();
 
 #endif

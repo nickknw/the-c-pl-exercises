@@ -81,6 +81,7 @@ char *all_tests()
     mu_run_test(test_sign_then_number);
     mu_run_test(test_sign_then_char);
 
+    freeInput();
     return NULL;
 }
 
