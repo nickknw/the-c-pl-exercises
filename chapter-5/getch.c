@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "getch.h"
+#include "dbg.h"
 
 static int *characters;
 static int count;
@@ -14,8 +15,8 @@ int getch(void)
 
 void ungetch(int character)
 {
-    characters[count] = character;
     count--;
+    characters[count] = character;
 }
 
 void setInput(int newCharacters[], int length)
