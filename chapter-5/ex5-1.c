@@ -18,7 +18,9 @@ int getint(int *pn)
         ungetch(c); /* it's not a number */
         return 0;
     }
+
     sign = (c == '-') ? -1 : 1;
+
     if (c == '+' || c == '-') {
         c = getch();
         if (!isdigit(c)) {
@@ -26,11 +28,17 @@ int getint(int *pn)
             return 0;
         }
     }
-    for (*pn = 0; isdigit(c); c = getch())
+
+    for (*pn = 0; isdigit(c); c = getch()) {
         *pn = 10 * *pn + (c - '0');
+    }
+
     *pn *= sign;
-    if (c != EOF)
+
+    if (c != EOF) {
         ungetch(c);
+    }
+
     return c;
 }
 
@@ -42,6 +50,7 @@ char *test_number()
     setInput(input, 4);
     rc = getint(&number);
 
+    mu_assert(rc == EOF, "Expected result to be EOF");
     mu_assert(number == 123, "Expected number to be 123");
 
     return NULL;
@@ -55,6 +64,7 @@ char *test_sign_then_number()
     setInput(input, 5);
     rc = getint(&number);
 
+    mu_assert(rc == EOF, "Expected result to be EOF");
     mu_assert(number == -325, "Expected number to be -325");
 
     return NULL;
@@ -73,6 +83,20 @@ char *test_sign_then_char()
     return NULL;
 }
 
+char *test_positive_return_code()
+{
+    int rc = 0, number = 0;
+
+    int input[] = {'-', '1', 'f'};
+    setInput(input, 3);
+    rc = getint(&number);
+
+    mu_assert(rc > 0, "Expected positive return code.");
+    mu_assert(number == -1, "Expected number to be -1");
+
+    return NULL;
+}
+
 char *all_tests()
 {
     mu_suite_start();
@@ -80,6 +104,7 @@ char *all_tests()
     mu_run_test(test_number);
     mu_run_test(test_sign_then_number);
     mu_run_test(test_sign_then_char);
+    mu_run_test(test_positive_return_code);
 
     freeInput();
     return NULL;
