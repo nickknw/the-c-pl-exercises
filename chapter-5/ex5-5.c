@@ -8,7 +8,7 @@
 
 char *mystrncpy(char *destination, char *source, size_t num)
 {
-    int i;
+    size_t i;
 
     // copy source to destination
     for(i = 0; i < num && source[i] != '\0'; i++) {
@@ -42,7 +42,7 @@ char *mystrncat(char *destination, char *source, size_t num)
 
 int mystrncmp(char *one, char *two, size_t num)
 {
-    int i;
+    size_t i;
 
     for (i = 0; i < num && one[i] != '\0' && two[i] != '\0'; i++) {
         if (one[i] != two[i]) {

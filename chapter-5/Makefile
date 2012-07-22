@@ -1,4 +1,4 @@
-CFLAGS=-Wall -g
+CFLAGS=-Wall -Wextra -g
 CC=clang
 
 all: ex5-1 ex5-2 ex5-3 ex5-4 ex5-5 ex5-7 ex5-7_tests
