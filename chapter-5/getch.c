@@ -21,11 +21,8 @@ void ungetch(int character)
 
 void setInput(int newCharacters[], int length)
 {
-    if (characters) {
-        characters = realloc(characters, length * sizeof(int));
-    } else {
-        characters = malloc(length * sizeof(int));
-    }
+    characters = malloc(length * sizeof(int));
+
     memcpy(characters, newCharacters, length * sizeof(int));
     count = 0;
 }

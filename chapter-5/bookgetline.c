@@ -22,7 +22,7 @@ int mygetline(char s[], int lim)
 {
     int c, i;
 
-    /* I changed the call from getchar() to getch() for testing purposes */
+    /* I changed the call from getchar() to a custom getch() to make it possible to test */
     for (i = 0; i < lim - 1 && (c = getch()) != EOF && c != '\n'; ++i) {
         s[i] = c;
     }

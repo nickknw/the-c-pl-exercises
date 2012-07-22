@@ -9,7 +9,7 @@ ex5-3: ex5-3.c
 ex5-4: ex5-4.c
 ex5-5: ex5-5.c
 ex5-7: ex5-7.o alloc.o bookgetline.o getch.o ex5-7_main.c
-ex5-7_tests: ex5-7.o alloc.o bookgetline.o getch.o ex5-7_tests.c
+ex5-7_tests: ex5-7.o alloc.o bookgetline.o getch.o ex5-7_tests.c benchmark.o
 
 clean:
 	rm -f *.o
