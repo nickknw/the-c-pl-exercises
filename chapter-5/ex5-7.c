@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "alloc.h"
-#include "benchmark.h"
 #include "ex5-7.h"
 
 #define MAXLEN 1000
